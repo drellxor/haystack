@@ -72,11 +72,9 @@ class TransformersReader:
         :return: dict containing question and answers
 
         """
-        #TODO pass metadata
-
         # get top-answers for each candidate passage
         answers = []
-        for p in paragraphs:
+        for p, meta in zip(paragraphs, meta_data_paragraphs):
             query = {"context": p, "question": question}
             predictions = self.model(query, topk=self.n_best_per_passage)
             # assemble and format all answers
@@ -90,8 +88,8 @@ class TransformersReader:
                         "offset_answer_start": pred["start"],
                         "offset_answer_end": pred["end"],
                         "probability": pred["score"],
-                        "score": None,
-                        "document_id": None
+                        "document_id": meta["document_id"],  # left this key for farm model compatibility within finder
+                        "meta": meta
                     })
 
         # sort answers by their `probability` and select top-k
