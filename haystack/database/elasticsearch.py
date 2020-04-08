@@ -198,7 +198,7 @@ class ElasticsearchDocumentStore(BaseDocumentStore):
                     "document_id": inner_hit["_source"][self.doc_id_field],
                     "document_name": inner_hit["_source"][self.name_field],
                     "score": inner_hit["_score"],
-                    "custom_meta": hit["_source"]
+                    "custom_meta": inner_hit["_source"]
                 }
                 meta_data.append(cur_meta)
 
