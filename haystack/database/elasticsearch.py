@@ -25,10 +25,14 @@ class ElasticsearchDocumentStore(BaseDocumentStore):
         excluded_meta_data=None,
         scheme="http",
         ca_certs=False,
-        verify_certs=True
+        verify_certs=True,
+        client=None
     ):
-        self.client = Elasticsearch(hosts=[host], http_auth=(username, password),
-                                    scheme=scheme, ca_certs=ca_certs, verify_certs=verify_certs)
+        if client:
+            self.client = client
+        else:
+            self.client = Elasticsearch(hosts=[host], http_auth=(username, password),
+                                        scheme=scheme, ca_certs=ca_certs, verify_certs=verify_certs)
 
         # if no custom_mapping is supplied, use the default mapping
         if not custom_mapping:
