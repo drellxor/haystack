@@ -4,12 +4,6 @@ from setuptools import find_packages, setup
 
 with open("requirements.txt") as f:
     parsed_requirements = f.read().splitlines()
-# remove blank lines, comments and links to specific git commits
-parsed_requirements = [
-    x.strip()
-    for x in parsed_requirements
-    if ((x.strip()[0] != "#") and (len(x.strip()) > 3) and "-e git://" not in x)
-]
 
 setup(
     name="farm-haystack",
