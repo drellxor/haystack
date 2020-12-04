@@ -1,5 +1,5 @@
 # FARM pre-0.4.2
--e git://github.com/deepset-ai/FARM.git@5d78cbe6293da616f7285ba2d3588efe5d5b453a#egg=farm
+-e git://github.com/drellxor/FARM.git@4e0b62f6b2a2e90cb7776d93f08ee833c75f28e5#egg=farm
 fastapi
 uvicorn
 flask_sqlalchemy
