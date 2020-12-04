@@ -1,5 +1,5 @@
 # FARM pre-0.4.2
--e git://github.com/drellxor/FARM.git@crowleysystems#egg=farm
+git+git://github.com/drellxor/FARM.git@crowleysystems#egg=farm
 fastapi
 uvicorn
 flask_sqlalchemy
